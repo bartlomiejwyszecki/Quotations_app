@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "best-quotes"
+    }
+  },
+  "defaultProject": "best-quotes",
+  "cli": {
+    "analytics": false
+  }
 }
