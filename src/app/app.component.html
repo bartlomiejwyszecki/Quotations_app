@@ -1,41 +1,26 @@
 <app-navbar></app-navbar>
 
 <div class="container q-container">
-  <button class="btn-floating teal add-button" (click)="form.switchForm()">
+
+  <app-button 
+    customClasses="btn-floating teal add-button"
+    (clickButton)="form.switchForm()">
     <i class="material-icons">add</i>
-  </button>
+  </app-button>
   
   <app-form #form (newQuotation)="onNewQuotation($event)"></app-form>
 
   <div class="row">
     <div class="col s8">
-      <div class="row">
-        <div class="col s12">
-          <div class="card teal hoverable" 
-            *ngFor="let quotation of quotes; let odd = odd"
-            [ngClass]="odd ? 'accent-4' : 'accent-5'">
-            <div class="card-content white-text">
-              <span class="card-title">
-                {{ quotation.quotation }}
-              </span>
-                {{ quotation.author }}
-            </div>
-            <div class="card-action right-align">
-              <span class="badge grey darken-2 left white-text">{{ quotation.votes }}</span>
-              <button class="btn blue mr-5"  (click)="addVote(quotation, +1)">
-                <i class="material-icons">exposure_plus_1</i>
-              </button>
-              <button class="btn red" (click)="addVote(quotation, -1)">
-                <i class="material-icons">exposure_neg_1</i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <app-list [quotes]="quotes" (vote)="addVote($event.quotation, $event.value)"></app-list>
+
     </div>
     <div class="col s4">
+
       <app-ranking [quotes]="bestQuotes()" title="Najlepsze cytaty"></app-ranking>
       <app-ranking [quotes]="worstQuotes()" title="Najgorsze cytaty"></app-ranking>
+
     </div>
   </div>
 </div>
