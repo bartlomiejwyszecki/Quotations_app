@@ -1,10 +1,10 @@
-# BestQuotes
+# Quotations app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Description
 
-Simple angular application, based on observables, where user have to choose correct form of a word.
+Simple angular application, where user can browse and rate quotes. 
 
 ## Installation
 
